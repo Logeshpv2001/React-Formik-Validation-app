@@ -39,7 +39,7 @@ export default function Edit() {
 
   useEffect(() => {
     setModifiedData(books.find(item => item.title === id))
-  }, [books,id])
+  }, [books, id])
 
   const navigate = useNavigate()
 
@@ -54,10 +54,10 @@ export default function Edit() {
     validate,
     onSubmit: values => {
       setBooks(books.map(item => {
-        if(item.title === id){
-          return {...values}
+        if (item.title === id) {
+          return { ...values }
         }
-        else{
+        else {
           return item
         }
 
@@ -67,20 +67,7 @@ export default function Edit() {
     },
   });
 
-  
-  // const handleUpdate = (event) => {
-  //   event.preventDefault();
-  //   setBooks(books.map(item => {
-  //     if (item.title === id) {
-  //       return { ...modifiedData }
-  //     }
-  //     else {
-  //       return item
-  //     }
-  //   }))
-  //   alert('Data Update Successfully!')
-  //   navigate('/')
-  // }
+
 
   return (
     <div style={{ width: "1296px", height: "100vh" }} className='d-flex justify-content-center align-items-center'>
@@ -129,16 +116,16 @@ export default function Edit() {
         <Form.Group className='mb-3' md="9">
           <Form.Label>Publish Date</Form.Label>
           <Form.Control
-           type="date"
-           id='date'
-           name='date'
-           placeholder="Enter Publish Date"
-           required
-           onChange={formik.handleChange}
-           onBlur={formik.handleBlur}
-           value={formik.values.date} 
-           />
-           {formik.touched.date && formik.errors.date ? <div style={{ color: "red" }}>{formik.errors.date}</div> : null}
+            type="date"
+            id='date'
+            name='date'
+            placeholder="Enter Publish Date"
+            required
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.date}
+          />
+          {formik.touched.date && formik.errors.date ? <div style={{ color: "red" }}>{formik.errors.date}</div> : null}
         </Form.Group>
         <Button type="submit">Update form</Button>
       </Form>
